@@ -35,13 +35,13 @@ spec:
       ingress:
         enabled: true
 
-      ingressClassName: traefik
+        ingressClassName: traefik
 
-      hosts:
-        - grafana.ember-ci.com
+        hosts:
+          - grafana.ember-ci.com
 
-      tls:
-        - secretName: grafana-tls-secret
-          hosts:
-            - grafana.ember-ci.com
+        tls:
+          - secretName: grafana-tls-secret
+            hosts:
+              - grafana.ember-ci.com
 
