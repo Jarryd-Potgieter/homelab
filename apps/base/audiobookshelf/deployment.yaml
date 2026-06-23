@@ -1,19 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: audiobs
   name: audiobs
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: audiobs
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
   template:
     metadata:
       labels:
@@ -22,21 +15,20 @@ spec:
       containers:
         - name: audiobookshelf
           image: ghcr.io/advplyr/audiobookshelf:latest
-
           ports:
           - containerPort: 13378:80
 
-            volumeMounts:
-            - mountPath: /app/config
-              name: audiobs-data-pvc
+#            volumeMounts:
+#            - mountPath: /app/config
+#              name: audiobs-data-pvc
+#
+#              mountPath: /app/metadata
+#              name: audiobs-data-pvc
 
-              mountPath: /app/metadata
-              name: audiobs-data-pvc
-
-      volumes:
-        - name: audiobs-data-pvc
-          persistentVolumeClaim:
-            claimName: audiobs-data-pvc
+#      volumes:
+#        - name: audiobs-data-pvc
+#          persistentVolumeClaim:
+#            claimName: audiobs-data-pvc
 
 
 
