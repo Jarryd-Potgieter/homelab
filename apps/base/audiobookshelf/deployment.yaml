@@ -24,19 +24,19 @@ spec:
           image: ghcr.io/advplyr/audiobookshelf:latest
 
           ports:
-          - containerPort: 3005
+          - containerPort: 13378:80
 
-#          volumeMounts:
-#            - mountPath: /app/config
-#              name: audiobs-data-pvc
-#
-#              mountPath: /app/metadata
-#              name: audiobs-data-pvc
-#
-#      volumes:
-#        - name: audiobs-data-pvc
-#          persistentVolumeClaim:
-#            claimName: audiobs-data-pvc
+            volumeMounts:
+            - mountPath: /app/config
+              name: audiobs-data-pvc
+
+              mountPath: /app/metadata
+              name: audiobs-data-pvc
+
+      volumes:
+        - name: audiobs-data-pvc
+          persistentVolumeClaim:
+            claimName: audiobs-data-pvc
 
 
 
