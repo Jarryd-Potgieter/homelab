@@ -21,17 +21,16 @@ spec:
           ports:
           - containerPort: 13378
 
-#            volumeMounts:
-#            - mountPath: /app/config
-#              name: audiobs-data-pvc
-#
-#              mountPath: /app/metadata
-#              name: audiobs-data-pvc
+            volumeMounts:
+            - mountPath: /app/config
+              name: audiobs-data-pvc
+              subPath: config
 
-#      volumes:
-#        - name: audiobs-data-pvc
-#          persistentVolumeClaim:
-#            claimName: audiobs-data-pvc
+            - mountPath: /app/metadata
+              name: audiobs-data-pvc
+              subPath: metadata
 
-
-
+      volumes:
+        - name: audiobs-data-pvc
+          persistentVolumeClaim:
+            claimName: audiobs-data-pvc
