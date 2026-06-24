@@ -5,4 +5,4 @@ resources:
   - namespace.yaml
   - storage.yaml
   - service.yaml
-  - config.yaml
+  - abs-config.yaml
