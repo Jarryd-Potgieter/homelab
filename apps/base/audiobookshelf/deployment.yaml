@@ -15,9 +15,9 @@ spec:
       containers:
         - name: audiobookshelf
           image: ghcr.io/advplyr/audiobookshelf:latest
-          envFrom:
-            - configMapRef:
-                name: abs-config
+          env:
+            - name: PORT
+              value: "13378"
           ports:
           - containerPort: 13378
 
