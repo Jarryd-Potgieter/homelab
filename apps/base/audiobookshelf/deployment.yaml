@@ -12,6 +12,10 @@ spec:
       labels:
         app: audiobookshelf
     spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
       containers:
       - image: ghcr.io/advplyr/audiobookshelf:latest
         name: audiobookshelf
@@ -20,6 +24,8 @@ spec:
         envFrom:
           - configMapRef:
               name: abs-config
+        securityContext:
+          allowPrivilegeEscalation: false
         volumeMounts:
           - mountPath: /config
             name: audiobookshelf-config
